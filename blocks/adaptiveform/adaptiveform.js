@@ -88,6 +88,7 @@ export class AdaptiveForm {
     if (!formLink || !formLink.href) {
         throw new Error("No formdata action is provided, can't render adaptiveformblock");
     }
-
-    return await createFormContainer(formLinkWrapper || formLink, formLink.href);
+    
+    let afFormLink = window.location.href + formLink.href.replace(/^https?:\/\//i, "");
+    return await createFormContainer(formLinkWrapper || formLink, afFormLink);
   }
